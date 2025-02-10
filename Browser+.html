@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser in a Browser</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; }
+        iframe { width: 90%; height: 500px; border: 2px solid black; }
+    </style>
+</head>
+<body>
+    <h1>Browser in a Browser in a Browser</h1>
+    <iframe srcdoc='
+        <html>
+        <head><style>body { text-align: center; } iframe { width: 90%; height: 400px; border: 2px solid blue; }</style></head>
+        <body>
+            <h2>Browser Level 2</h2>
+            <iframe srcdoc="
+                <html>
+                <head><style>body { text-align: center; } iframe { width: 90%; height: 300px; border: 2px solid red; }</style></head>
+                <body>
+                    <h3>Browser Level 3</h3>
+                    <iframe src='https://google.com'></iframe>
+                </body>
+                </html>
+            "></iframe>
+        </body>
+        </html>
+    '></iframe>
+</body>
+</html>
